@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/tapp/vite.svg" />
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="MobileOptimized" content="176" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>Telegram Mini App</title>
-        <script src="https://telegram.org/js/telegram-web-app.js"></script>
-      <script type="module" crossorigin src="./assets/index-SltbMgUm.js"></script>
-      <link rel="stylesheet" crossorigin href="./assets/index-7OyTGCOc.css">
+        <script type="text/javascript">
+            // Скрипт для обработки перенаправления с 404.html
+            ;(function () {
+                var redirect = sessionStorage.redirect
+                delete sessionStorage.redirect
+                if (redirect && redirect !== location.href) {
+                    history.replaceState(null, null, redirect)
+                }
+            })()
+        </script>
+      <script type="module" crossorigin src="/tapp/assets/index-BfqT3_Kc.js"></script>
+      <link rel="stylesheet" crossorigin href="/tapp/assets/index-D8b4DHJx.css">
     </head>
     <body>
         <div id="root"></div>
