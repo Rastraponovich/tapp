@@ -1,12 +1,22 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.tsx';
+import { Application } from './app/application';
+
+// Mock the environment in case, we are outside Telegram.
+import './shared/init/mock-env';
+import { init } from '@telegram-apps/sdk';
 
 const root = document.getElementById('root')!;
 
-createRoot(root).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+try {
+  // Configure all application dependencies.
+  init();
+
+  createRoot(root).render(
+    <StrictMode>
+      <Application />
+    </StrictMode>,
+  );
+} catch (error) {
+  console.error(error);
+}
