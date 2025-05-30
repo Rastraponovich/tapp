@@ -35,6 +35,6 @@ npm run deploy
 
 ## Особенности
 
--   Интеграция с Telegram Mini Apps API
--   Адаптивный дизайн
--   Поддержка GitHub Pages
+- Интеграция с Telegram Mini Apps API
+- Адаптивный дизайн
+- Поддержка GitHub Pages
