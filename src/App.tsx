@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
-import { backButton, init, isTMA, retrieveLaunchParams } from '@telegram-apps/sdk';
+import { init, isTMA, retrieveLaunchParams } from '@telegram-apps/sdk';
+import { Button } from './shared/ui';
 
 // Определение интерфейса для данных пользователя
 interface TelegramUser {
@@ -15,7 +14,6 @@ interface TelegramUser {
 }
 
 function App() {
-  const [count, setCount] = useState(0);
   const [user, setUser] = useState<TelegramUser | null>(null);
   const [isReady, setIsReady] = useState(false);
 
@@ -28,8 +26,6 @@ function App() {
 
         // Получаем данные пользователя
         const launchParams = retrieveLaunchParams();
-
-        backButton.mount();
 
         // Парсим данные пользователя если они есть
         if (launchParams.initDataRaw && typeof launchParams.initDataRaw === 'string') {
@@ -62,14 +58,6 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href='https://vite.dev' target='_blank' rel='noreferrer'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank' rel='noreferrer'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
       <h1>Telegram Mini App</h1>
       {user && (
         <div className='user-info'>
@@ -79,10 +67,15 @@ function App() {
         </div>
       )}
       <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>Счетчик: {count}</button>
+        <Button
+          onClick={() => {
+            alert('жопка');
+          }}
+        >
+          кнопка
+        </Button>
         <p>Telegram Mini App готов: {isReady ? 'Да' : 'Нет'}</p>
       </div>
-      <p className='read-the-docs'>Нажмите на логотипы для получения дополнительной информации</p>
     </>
   );
 }
