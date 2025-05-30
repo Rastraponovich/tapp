@@ -1,32 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/tapp/vite.svg" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="MobileOptimized" content="176" />
-        <meta name="HandheldFriendly" content="True" />
-        <meta name="robots" content="noindex,nofollow" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>Telegram Mini App</title>
-        <script type="text/javascript">
-            // Скрипт для обработки перенаправления с 404.html
-            ;(function () {
-                var redirect = sessionStorage.redirect
-                delete sessionStorage.redirect
-                if (redirect && redirect !== location.href) {
-                    history.replaceState(null, null, redirect)
-                }
-            })()
-        </script>
-      <script type="module" crossorigin src="/tapp/assets/index-BfqT3_Kc.js"></script>
-      <link rel="stylesheet" crossorigin href="/tapp/assets/index-D8b4DHJx.css">
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/tapp/vite.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>Telegram Mini App</title>
+    <script type="text/javascript">
+      // Скрипт для обработки перенаправления с 404.html
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/tapp/assets/index-BP0KDRHZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/tapp/assets/index-D8b4DHJx.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
