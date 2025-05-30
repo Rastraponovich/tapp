@@ -1,52 +1,54 @@
-# Telegram Mini App
+# React + TypeScript + Vite
 
-Простое Telegram Mini App, демонстрирующее основные возможности.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Функциональность
+Currently, two official plugins are available:
 
--   Интеграция с Telegram Web App SDK
--   Показ информации о пользователе
--   Простой счетчик с возможностью поделиться результатом
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Установка и запуск
+## Expanding the ESLint configuration
 
-1. Клонируйте репозиторий:
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```
-git clone <url-репозитория>
-cd tapp
-```
-
-2. Установите зависимости:
-
-```
-npm install
-```
-
-3. Запустите приложение в режиме разработки:
-
-```
-npm run dev
-```
-
-4. Для сборки проекта:
-
-```
-npm run build
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## Интеграция с Telegram Bot
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-1. Создайте бота через [@BotFather](https://t.me/BotFather)
-2. Настройте веб-приложение в BotFather:
-    - Используйте команду /newapp
-    - Добавьте URL вашего задеплоенного приложения
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Развертывание
-
-Можно использовать различные платформы для хостинга статических сайтов:
-
--   GitHub Pages
--   Netlify
--   Vercel
--   Firebase Hosting
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
