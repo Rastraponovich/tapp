@@ -1,58 +1,64 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { init, retrieveLaunchParams } from '@telegram-apps/sdk'
+import { useEffect, useState } from 'react';
+import reactLogo from '/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { backButton, init, isTMA, retrieveLaunchParams } from '@telegram-apps/sdk';
 
 // Определение интерфейса для данных пользователя
 interface TelegramUser {
-  id: number
-  first_name: string
-  last_name?: string
-  username?: string
-  language_code?: string
-  is_premium?: boolean
+  id: number;
+  first_name: string;
+  last_name?: string;
+  username?: string;
+  language_code?: string;
+  is_premium?: boolean;
 }
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [user, setUser] = useState<TelegramUser | null>(null)
-  const [isReady, setIsReady] = useState(false)
+  const [count, setCount] = useState(0);
+  const [user, setUser] = useState<TelegramUser | null>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     // Инициализация Telegram Web App
     const initTelegram = async () => {
       try {
         // Инициализируем SDK
-        init()
+        init();
 
         // Получаем данные пользователя
-        const launchParams = retrieveLaunchParams()
+        const launchParams = retrieveLaunchParams();
+
+        backButton.mount();
 
         // Парсим данные пользователя если они есть
         if (launchParams.initDataRaw && typeof launchParams.initDataRaw === 'string') {
-          const params = new URLSearchParams(launchParams.initDataRaw)
-          const userParam = params.get('user')
+          const params = new URLSearchParams(launchParams.initDataRaw);
+          const userParam = params.get('user');
 
           if (userParam) {
             try {
-              const userData = JSON.parse(userParam) as TelegramUser
-              setUser(userData)
+              const userData = JSON.parse(userParam) as TelegramUser;
+              setUser(userData);
             } catch (e) {
-              console.error('Ошибка парсинга данных пользователя:', e)
+              console.error('Ошибка парсинга данных пользователя:', e);
             }
           }
         }
 
-        setIsReady(true)
+        setIsReady(true);
       } catch (error) {
-        console.error('Ошибка инициализации Telegram Web App:', error)
-        setIsReady(true) // Отмечаем как готовое даже при ошибке
+        console.error('Ошибка инициализации Telegram Web App:', error);
+        setIsReady(true); // Отмечаем как готовое даже при ошибке
       }
-    }
+    };
 
-    initTelegram()
-  }, [])
+    isTMA('complete').then((res) => {
+      if (res) {
+        initTelegram();
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -78,7 +84,7 @@ function App() {
       </div>
       <p className='read-the-docs'>Нажмите на логотипы для получения дополнительной информации</p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
