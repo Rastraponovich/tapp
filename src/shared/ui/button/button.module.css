@@ -2,17 +2,17 @@
   color: var(--color-primary);
   padding: 10px 20px;
   border-radius: 5px;
-  border: none;
+  border: 1px solid currentColor;
   cursor: pointer;
   background-color: var(--color-background);
   box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.1);
   transition-duration: 300ms;
-  transition-property: color, background-color, box-shadow;
+  transition-property: color, background-color, box-shadow, border;
   transition-timing-function: ease-out;
 
   &:hover {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     color: var(--color-background);
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-button);
   }
 }

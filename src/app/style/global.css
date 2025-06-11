@@ -2,6 +2,9 @@
   --color-primary: rgba(255, 255, 255, 0.87);
   --color-secondary: #fff;
   --color-background: #242424;
+  --color-shadow: rgba(255, 255, 255, 0.3);
+
+  --shadow-button: 0 0 4px 0 var(--color-shadow);
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -74,5 +77,6 @@ button:focus-visible {
     --color-primary: #213547;
     --color-secondary: #ffffff;
     --color-background: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.3);
   }
 }
