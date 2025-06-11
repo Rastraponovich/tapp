@@ -4,7 +4,7 @@ import { ViewerCard } from '@/shared/viewer';
 
 export function Application() {
   const handleClick = () => {
-    alert('жопка');
+    alert('ты пидор');
   };
 
   return (
@@ -12,7 +12,7 @@ export function Application() {
       <ViewerCard />
 
       <div className='card'>
-        <Button onClick={handleClick}>кнопка</Button>
+        <Button onClick={handleClick}>узнать судьбу</Button>
       </div>
     </>
   );
