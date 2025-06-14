@@ -1,18 +1,17 @@
 .button {
-  color: var(--color-primary);
+  color: var(--button_text_color);
   padding: 10px 20px;
   border-radius: 5px;
-  border: 1px solid currentColor;
   cursor: pointer;
-  background-color: var(--color-background);
-  box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.1);
+  outline: none;
+  border: none;
+  background-color: var(--button_color);
   transition-duration: 300ms;
-  transition-property: color, background-color, box-shadow, border;
+  transition-property: color, background-color;
   transition-timing-function: ease-out;
 
   &:hover {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-    box-shadow: var(--shadow-button);
+    background-color: var(--button_color);
+    color: var(--button_text_color);
   }
 }

@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  gap: 1rem;
+  display: flex;
+  padding: 2vmax;
+  border-radius: 1rem;
+  flex-direction: column;
+  background-color: var(--bg_color);
+}
