@@ -225,8 +225,8 @@ export function TicTacToe() {
             </button>
 
             <button
-              className={clsx(styles.sideButton, styles.oButton)}
               onClick={() => startGame(Player.O)}
+              className={clsx(styles.sideButton, styles.oButton)}
             >
               <span className={styles.sideSymbol}>O</span>
               <span className={styles.sideLabel}>Нолики</span>
@@ -253,6 +253,20 @@ export function TicTacToe() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.controls}>
+        <Button onClick={newGameSameSide} type='button'>
+          Новая игра
+        </Button>
+
+        <Button
+          type='button'
+          onClick={resetGame}
+          className={styles.secondaryButton}
+        >
+          Сменить сторону
+        </Button>
+      </div>
+
       <h2 className={styles.title}>Крестики-нолики с ИИ</h2>
 
       <div className={styles.gameHeader}>
@@ -269,20 +283,6 @@ export function TicTacToe() {
             </span>
           </span>
         </div>
-      </div>
-
-      <div className={styles.controls}>
-        <Button onClick={newGameSameSide} type='button'>
-          Новая игра
-        </Button>
-
-        <Button
-          type='button'
-          onClick={resetGame}
-          className={styles.secondaryButton}
-        >
-          Сменить сторону
-        </Button>
       </div>
 
       <div className={styles.gameInfo}>
