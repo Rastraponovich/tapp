@@ -1,0 +1,290 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--section_bg_color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text_color);
+  margin: 0;
+  text-align: center;
+}
+
+/* Выбор стороны */
+.sideSelection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.selectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text_color);
+  margin: 0;
+  text-align: center;
+}
+
+.sideButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sideButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  background: var(--bg_color);
+  border: 2px solid var(--section_separator_color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.sideButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.xButton {
+  border-color: #e74c3c;
+}
+
+.xButton:hover {
+  border-color: #c0392b;
+  background: rgba(231, 76, 60, 0.05);
+}
+
+.oButton {
+  border-color: var(--accent_text_color);
+}
+
+.oButton:hover {
+  border-color: #0f6fa8;
+  background: rgba(22, 138, 205, 0.05);
+}
+
+.sideSymbol {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.xButton .sideSymbol {
+  color: #e74c3c;
+}
+
+.oButton .sideSymbol {
+  color: var(--accent_text_color);
+}
+
+.sideLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text_color);
+}
+
+.sideNote {
+  font-size: 0.85rem;
+  color: var(--subtitle_text_color);
+  text-align: center;
+}
+
+.difficultySection {
+  margin-top: 10px;
+}
+
+.difficultyLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text_color);
+}
+
+/* Информация об игре */
+.gameHeader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.playerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--secondary_bg_color);
+  border-radius: 8px;
+  border: 1px solid var(--section_separator_color);
+}
+
+.playerLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text_color);
+}
+
+.playerSymbol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.gameInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.status {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--accent_text_color);
+}
+
+.board {
+  gap: 4px;
+  padding: 4px;
+  display: grid;
+  border-radius: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--section_separator_color);
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  border: none;
+  display: flex;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg_color);
+  transition: background-color 0.2s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: var(--secondary_bg_color);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.cell.x {
+  color: #e74c3c;
+}
+
+.cell.o {
+  color: var(--accent_text_color);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.secondaryButton {
+  background: var(--secondary_bg_color) !important;
+  color: var(--text_color) !important;
+  border: 1px solid var(--section_separator_color) !important;
+}
+
+.secondaryButton:hover {
+  background: var(--section_separator_color) !important;
+}
+
+.difficultySelect {
+  padding: 8px 12px;
+  border: 1px solid var(--section_separator_color);
+  border-radius: 6px;
+  background: var(--bg_color);
+  color: var(--text_color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.gameResult {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.gameResult.win {
+  background: rgba(46, 204, 113, 0.1);
+  color: #27ae60;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.gameResult.lose {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.gameResult.draw {
+  background: rgba(241, 196, 15, 0.1);
+  color: #f39c12;
+  border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .sideButtons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .sideButton {
+    min-width: 100%;
+  }
+
+  .cell {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
